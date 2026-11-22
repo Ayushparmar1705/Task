@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #293920;
+  --color-cream: #f3f0eb;
+  --color-olive: #5a6d3f;
+  --color-yellow: #f0d013;
+  --color-bright-yellow: #fde251;
+  --color-sage-border: #b8c595;
+  --color-soft-sage: #dce7b6;
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --premade_template_dpteta8s: "Roboto";
+  --premade_template_dprt5n21: rgba(41, 57, 32, 1.00); /* #293920 Dark forest */
+  --premade_template_dphdxhps: rgba(243, 240, 235, 1.00); /* #F3F0EB Sand/Cream background */
+  --premade_template_dpw2cmzz: rgba(90, 109, 63, 1.00); /* #5A6D3F Olive green */
+  --premade_template_dpuu8y8d: rgba(240, 208, 19, 1.00); /* #F0D013 Yellow gold */
+  --k-c33gpt3b: rgba(253, 226, 81, 1.00); /* #FDE251 Bright yellow */
+  --premade_template_dp8lt4p6: rgba(184, 197, 149, 1.00); /* #B8C595 Sage border */
+  --premade_template_dpr6ma7w: rgba(220, 231, 182, 1.00); /* #DCE7B6 Soft sage */
+  --k-tibizoid: rgba(94, 94, 94, 1.00);
+  --premade_template_dp0jl7mf: rgba(255, 255, 255, 1);
+  --k-f9wg3u9f: rgba(70, 70, 70, 1.00);
+  --dptshojw: rgba(255, 255, 255, 0.4);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--premade_template_dphdxhps);
+  color: var(--premade_template_dprt5n21);
+}
+
+html.hide-page-scrollbar {
+  scrollbar-width: none;
+}
+
+html.hide-page-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--premade_template_dphdxhps);
+  color: var(--premade_template_dprt5n21);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base Container */
+.kirki-container {
+  width: 100%;
+  max-width: 1620px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media only screen and (max-width: 991px) {
+  .kirki-container {
+    padding: 0 32px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .kirki-container {
+    padding: 0 16px;
+  }
+}
+
+/* Pill Badge */
+.kirki-badge {
+  display: inline-block;
+  color: var(--premade_template_dpw2cmzz);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25em;
+  border-radius: 100px;
+  padding: 8px 16px;
+  border: 1px solid var(--premade_template_dp8lt4p6);
+  width: fit-content;
+  background: transparent;
+}
+
+.kirki-badge-light {
+  color: var(--premade_template_dpr6ma7w);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Marquee Animation */
+@keyframes kirkiMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.kirki-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: kirkiMarquee 25s linear infinite;
+}
+
+.kirki-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hero entrance fade-up animation */
+@keyframes heroEntrance {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kirkiWordReveal {
+  0% {
+    transform: translateY(115%);
+    filter: blur(8px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.word-reveal.is-word-reveal-ready .revealed-word {
+  transform: translateY(115%);
+  filter: blur(8px);
+  opacity: 0;
+}
+
+.word-reveal.is-word-reveal-ready.is-word-reveal-visible .revealed-word {
+  display: inline-block;
+  animation-name: kirkiWordReveal;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  animation-fill-mode: forwards;
+  color: var(--premade_template_dprt5n21);
+  visibility: visible;
+  will-change: auto;
+}
+
+/* Preserve the About journey's muted "Since 2012" text color during its reveal. */
+#about-journey .revealed-word {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-reveal-respects-motion.is-word-reveal-ready .revealed-word {
+    animation: none;
+    transform: none;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* Character stagger, matching Kirki textAnimationStagger on scroll into view */
+@keyframes kirkiCharReveal {
+  0% {
+    transform: translate3d(10px, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.char-reveal.is-char-reveal-ready [data-char] {
+  display: inline-block;
+  transform: translate3d(10px, 0, 0);
+  opacity: 0;
+}
+
+.char-reveal.is-char-reveal-ready.is-char-reveal-visible [data-char] {
+  animation-name: kirkiCharReveal;
+  animation-duration: var(--char-duration, 400ms);
+  animation-timing-function: var(--char-ease, ease-out);
+  animation-fill-mode: forwards;
+  animation-delay: calc(var(--char-index) * var(--char-stagger, 30ms));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char-reveal.is-char-reveal-ready [data-char] {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Pulse glow for active progress dot */
+@keyframes activePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-pulse-slow {
+  animation: activePulse 2s ease-in-out infinite;
+}
