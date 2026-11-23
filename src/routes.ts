@@ -1,6 +1,6 @@
 export const HOME_PAGE_PATH = '/';
 export const ABOUT_PAGE_PATH = '/about/';
-export const BLOG_PAGE_PATH = '/blog/';
+export const BLOG_PAGE_PATH = '/blog';
 export const CONTACT_PAGE_PATH = '/contact/';
 export const TERMS_PAGE_PATH = '/terms-conditions/';
 export const ECO_FRIENDLY_ARTICLE_PATH = '/eco-friendly-habits-small-changes-for-a-greener-life/';

@@ -267,7 +267,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
               />
               <button
                 type="submit"
-                className="group mt-6 inline-flex h-[42px] w-fit items-center gap-0 whitespace-nowrap rounded-full border-0 bg-transparent p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive"
+                className="group mt-6 inline-flex h-[42px] w-fit cursor-pointer items-center gap-0 whitespace-nowrap rounded-full border-0 bg-transparent p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive"
               >
                 <span className="inline-flex h-[42px] items-center rounded-full bg-bright-yellow px-4 py-3 text-[18px] font-medium leading-[18px] -tracking-[.3px] text-olive transition-colors duration-300 group-hover:bg-olive group-hover:text-bright-yellow max-[991px]:text-[16px]">
                   Submit comment

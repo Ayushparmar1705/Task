@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, homePage = true }
   }, [mobileMenuOpen]);
   const routeHref = (href: string) => {
     if (href === '/about/' || href === '/about' || href === '#about-us') return ABOUT_PAGE_PATH;
-    if (href === '#blogs' && !homePage) return BLOG_PAGE_PATH;
+    if (href === '#blogs') return BLOG_PAGE_PATH;
     return homePage || !href.startsWith('#') ? href : `/${href}`;
   };
 

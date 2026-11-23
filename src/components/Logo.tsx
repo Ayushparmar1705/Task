@@ -2,15 +2,16 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
+  svgClassName?: string;
   light?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = '', light = false }) => {
+export const Logo: React.FC<LogoProps> = ({ className = '', svgClassName = '', light = false }) => {
   return (
     <div className={`inline-flex cursor-pointer items-center gap-[6px] no-underline ${className}`}>
       {/* Exact Green Sprout SVG typography brand mark matching live site */}
       <svg
-        className={`h-8 w-auto max-w-[208px] ${light ? 'text-bright-yellow' : 'text-forest'}`}
+        className={`h-8 w-auto max-w-[208px] ${light ? 'text-bright-yellow' : 'text-forest'} ${svgClassName}`}
         xmlns="http://www.w3.org/2000/svg"
         width="209"
         height="32"

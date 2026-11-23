@@ -100,6 +100,7 @@ export const BlogsSection: React.FC = () => {
           text="Explore More Blogs"
           href={BLOG_PAGE_PATH}
           variant="yellow"
+          hoverAnimation={false}
         />
       </div>
     </section>

@@ -96,6 +96,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onLearnMore }) => {
                 href="/about/"
                 onClick={onLearnMore}
                 variant="yellow"
+                hoverAnimation={false}
               />
             </div>
           </div>
