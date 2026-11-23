@@ -104,9 +104,9 @@ export const WorkProcessSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="absolute top-0 left-1/2 flex h-full w-4 -translate-x-1/2 flex-col items-center max-[767px]:left-0 max-[767px]:translate-x-0">
-                    <div className="z-10 h-4 w-4 shrink-0 rounded-full bg-olive" />
-                    {!isLastStep && <div className="w-px flex-1 bg-olive" />}
+                  <div className="absolute top-0 left-1/2 flex h-full w-4 flex-col items-center max-[767px]:left-0">
+                    <div className="z-10 h-[15.5px] w-4 shrink-0 rounded-full bg-olive" />
+                    <div className="w-px flex-1 bg-olive" />
                   </div>
 
                   <div className={contentColumnClass}>

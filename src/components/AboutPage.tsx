@@ -242,7 +242,7 @@ export const AboutPage: React.FC = () => {
       {/* PARTNERS SECTION */}
       <section
         id="partners-section"
-        className="overflow-hidden bg-cream py-12 max-[991px]:py-8 max-[575px]:py-6"
+        className="overflow-hidden bg-soft-sage py-12 max-[991px]:py-8 max-[575px]:py-6"
       >
         <div className="mx-auto w-full max-w-[1620px] px-6 max-[991px]:px-8 max-[575px]:px-4">
 
@@ -252,9 +252,9 @@ export const AboutPage: React.FC = () => {
 
           <div className="relative mx-auto w-full max-w-[1200px] overflow-hidden rounded-xl py-6">
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-1/4 bg-gradient-to-r from-cream to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-1/4 bg-gradient-to-r from-soft-sage to-transparent" />
 
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-cream to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-soft-sage to-transparent" />
 
             <div className="kirki-marquee-track items-center gap-16">
               {repeatedPartners.map((logo, index) => (
@@ -291,14 +291,9 @@ export const AboutPage: React.FC = () => {
           <div className="flex w-1/2 flex-col items-center text-center max-[991px]:w-full">
             <p className="kirki-badge">Our Journey</p>
             <h2
-              aria-label="We envision a future where innovation nourishes"
               className="mt-6 max-w-[499px] text-[44px] font-normal leading-[56px] -tracking-[2px] text-forest max-[991px]:mt-4 max-[991px]:text-[36px] max-[991px]:leading-[42px] max-[575px]:text-[28px] max-[575px]:leading-[34px]"
             >
-              <SlidingWords
-                text="We envision a future where innovation nourishes"
-                animateOnView
-                respectReducedMotion={false}
-              />
+              We envision a future where innovation nourishes
             </h2>
             <p className="mt-4 max-w-[615px] text-[24px] font-normal leading-9 -tracking-[1px] text-[#5e5e5e] max-[991px]:text-[18px] max-[991px]:leading-7 max-[991px]:-tracking-[0.4px] max-[575px]:text-[16px] max-[575px]:leading-6">
               GreenSprout began as a humble family venture and has blossomed into a flourishing organic farm,

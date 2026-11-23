@@ -11,6 +11,17 @@ describe('About / Our Story Navigation', () => {
     expect(navbar).toContain('Our Story');
   });
 
+  it('routes the brand and Home links to the root path without a hash', () => {
+    const navbar = renderToStaticMarkup(<Navbar homePage />);
+    const footer = renderToStaticMarkup(<Footer homePage />);
+    const homeLinks = [...navbar.matchAll(/<a\b(?=[^>]*href="([^"]*)")[^>]*>Home<\/a>/g)];
+
+    expect(navbar).toContain('<a href="/"');
+    expect(homeLinks).toHaveLength(1);
+    expect(homeLinks.map(([, href]) => href)).toEqual(['/']);
+    expect(footer).toContain('href="/">Home</a>');
+  });
+
   it('routes About in Footer to /about/', () => {
     const footer = renderToStaticMarkup(<Footer homePage />);
     expect(footer).toContain('href="/about/"');

@@ -20,6 +20,7 @@ import {
   isAboutPagePath,
   isBlogPagePath,
   isContactPagePath,
+  isTermsPagePath,
   isDairyArticlePath,
   isEcoFriendlyArticlePath,
   isFirstOrganicGardenArticlePath,
@@ -36,6 +37,9 @@ const BlogPage = lazy(() =>
 );
 const ContactPage = lazy(() =>
   import('./components/ContactPage').then((module) => ({ default: module.ContactPage })),
+);
+const TermsConditionsPage = lazy(() =>
+  import('./components/TermsConditionsPage').then((module) => ({ default: module.TermsConditionsPage })),
 );
 
 function App() {
@@ -55,8 +59,10 @@ function App() {
   const isAboutPage = isAboutPagePath(currentPath);
   const isBlogPage = isBlogPagePath(currentPath);
   const isContactPage = isContactPagePath(currentPath);
+  const isTermsPage = isTermsPagePath(currentPath);
   const isProductPage = isProductPagePath(currentPath);
-  const isHomePage = !isArticlePage && !isAboutPage && !isBlogPage && !isContactPage && !isProductPage;
+  const isHomePage =
+    !isArticlePage && !isAboutPage && !isBlogPage && !isContactPage && !isTermsPage && !isProductPage;
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -128,6 +134,10 @@ function App() {
         ) : isContactPage ? (
           <Suspense fallback={<div className="min-h-[65vh] bg-cream" aria-hidden="true" />}>
             <ContactPage />
+          </Suspense>
+        ) : isTermsPage ? (
+          <Suspense fallback={<div className="min-h-[65vh] bg-cream" aria-hidden="true" />}>
+            <TermsConditionsPage />
           </Suspense>
         ) : (
           <>

@@ -4,6 +4,7 @@ import {
   ABOUT_PAGE_PATH,
   BLOG_PAGE_PATH,
   CONTACT_PAGE_PATH,
+  TERMS_PAGE_PATH,
   DAIRY_ARTICLE_PATH,
   ECO_FRIENDLY_ARTICLE_PATH,
   ZERO_WASTE_ARTICLE_PATH,
@@ -12,6 +13,7 @@ import {
   isAboutPagePath,
   isBlogPagePath,
   isContactPagePath,
+  isTermsPagePath,
   isDairyArticlePath,
   isEcoFriendlyArticlePath,
   isZeroWasteArticlePath,
@@ -41,6 +43,18 @@ describe('contact page route', () => {
   it('keeps the home page and unrelated routes out of the contact page', () => {
     expect(isContactPagePath('/')).toBe(false);
     expect(isContactPagePath(BLOG_PAGE_PATH)).toBe(false);
+  });
+});
+
+describe('terms page route', () => {
+  it('matches the terms destination with or without a trailing slash', () => {
+    expect(isTermsPagePath(TERMS_PAGE_PATH)).toBe(true);
+    expect(isTermsPagePath(TERMS_PAGE_PATH.slice(0, -1))).toBe(true);
+  });
+
+  it('keeps the home page and unrelated routes out of the terms page', () => {
+    expect(isTermsPagePath('/')).toBe(false);
+    expect(isTermsPagePath(BLOG_PAGE_PATH)).toBe(false);
   });
 });
 

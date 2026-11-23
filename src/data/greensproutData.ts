@@ -2,6 +2,7 @@ import {
   DAIRY_ARTICLE_PATH,
   ECO_FRIENDLY_ARTICLE_PATH,
   FIRST_ORGANIC_GARDEN_ARTICLE_PATH,
+  HOME_PAGE_PATH,
   ORGANIC_FARMING_WORKSHOPS_ARTICLE_PATH,
   ZERO_WASTE_ARTICLE_PATH,
 } from '../routes';
@@ -61,7 +62,7 @@ export interface HeroSlide {
 }
 
 export const NAV_LINKS: NavItem[] = [
-  { label: 'Home', href: '#hero' },
+  { label: 'Home', href: HOME_PAGE_PATH },
   { label: 'Our Story', href: '/about/' },
   { label: 'Our Products', href: '#products', hasDropdown: true },
   { label: 'Blog', href: '#blogs' },

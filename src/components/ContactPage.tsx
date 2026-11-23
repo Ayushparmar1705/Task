@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CharacterReveal } from './CharacterReveal';
 import { SlidingWords } from './SlidingWords';
 
 const CONTACT_INTRO =
@@ -145,7 +146,12 @@ export const ContactPage: React.FC = () => {
             aria-label={FARM_VISIT_INTRO}
             className="mx-auto max-w-[869px] text-center text-[44px] font-normal leading-[56px] -tracking-[2px] text-forest max-[991px]:text-[36px] max-[991px]:leading-[42px] max-[575px]:text-[28px] max-[575px]:leading-[34px] max-[575px]:-tracking-[1.2px]"
           >
-            <SlidingWords text={FARM_VISIT_INTRO} />
+            <CharacterReveal
+              text={FARM_VISIT_INTRO}
+              direction="horizontal"
+              duration={500}
+              easing="power2.inOut"
+            />
           </h2>
         </div>
 

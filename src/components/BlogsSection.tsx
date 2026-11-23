@@ -36,7 +36,7 @@ export const BlogsSection: React.FC = () => {
               <a
                 href={post.link}
                 aria-label={`Read article: ${post.title}`}
-                className="mx-auto block w-full max-w-[1620px] px-6 py-8 no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest max-[991px]:px-8 max-[575px]:px-4"
+                className="group/link mx-auto block w-full max-w-[1620px] px-6 py-8 no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest max-[991px]:px-8 max-[575px]:px-4"
               >
                 <div className="flex w-full items-start gap-12 max-[991px]:gap-6">
                   <time
@@ -55,12 +55,12 @@ export const BlogsSection: React.FC = () => {
                       />
                     </div>
 
-                    <div className="flex min-w-0 flex-1 flex-col justify-between gap-6 self-stretch">
-                      <span className="w-fit rounded-md bg-soft-sage px-[10px] py-1 text-[14px] text-olive">
+                    <div className="flex min-w-0 flex-1 flex-col justify-start self-stretch">
+                      <span className="w-fit rounded-md bg-soft-sage px-[10px] py-2 text-[20px] leading-[26px] text-olive max-[991px]:py-1 max-[991px]:text-[14px] max-[991px]:leading-5">
                         {post.category}
                       </span>
 
-                      <div className="flex items-center gap-4 max-[575px]:items-start max-[575px]:gap-2">
+                      <div className="mt-8 flex items-start gap-4 max-[575px]:mt-6 max-[575px]:gap-2">
                         <time
                           dateTime="2025-11-14"
                           className="shrink-0 text-[14px] text-olive transition-colors group-hover:text-white/80 min-[992px]:hidden max-[575px]:text-[12px]"
@@ -72,9 +72,9 @@ export const BlogsSection: React.FC = () => {
                         </h3>
                       </div>
 
-                      <span className="inline-flex w-fit items-center gap-[10px] text-[18px] font-normal leading-[26px] -tracking-[0.4px] text-forest transition-colors duration-300 group-hover:text-yellow">
+                      <span className="group/read-more relative mt-auto inline-flex w-fit items-center gap-[10px] pt-6 text-[24px] font-normal leading-9 -tracking-[0.6px] text-forest transition-colors duration-300 group-hover:text-yellow group-focus-visible/link:text-yellow max-[991px]:text-[18px] max-[991px]:leading-[26px]">
                         <span>Read More</span>
-                        <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <svg className="h-[18px] w-[18px] transition-transform duration-300 group-hover/read-more:translate-x-1 group-focus-visible/link:translate-x-1" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path
                             d="M4 12h16m-6-6 6 6-6 6"
                             stroke="currentColor"
@@ -83,6 +83,10 @@ export const BlogsSection: React.FC = () => {
                             strokeLinejoin="round"
                           />
                         </svg>
+                        <span
+                          aria-hidden="true"
+                          className="absolute bottom-0 left-0 h-px w-full bg-yellow opacity-0 transition-opacity duration-300 group-hover/read-more:opacity-100 group-focus-visible/link:opacity-100"
+                        />
                       </span>
                     </div>
                   </div>

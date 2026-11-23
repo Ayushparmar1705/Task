@@ -71,11 +71,10 @@ function DateLabel({
   return (
     <time
       dateTime={post.date}
-      className={`inline-flex items-center gap-2 text-olive transition-colors duration-300 ${className} ${
-        isLong
-          ? 'text-[18px] font-normal leading-[26px] -tracking-[0.4px] max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5'
-          : 'text-[18px] font-normal leading-[26px] -tracking-[0.4px] max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5'
-      }`}
+      className={`inline-flex items-center gap-2 text-olive transition-colors duration-300 ${className} ${isLong
+        ? 'text-[18px] font-normal leading-[26px] -tracking-[0.4px] max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5'
+        : 'text-[18px] font-normal leading-[26px] -tracking-[0.4px] max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5'
+        }`}
     >
       <CalendarIcon className="h-5 w-5" />
       {getDateLabel(post.date, format)}
@@ -175,7 +174,7 @@ export const BlogPage: React.FC = () => {
                     href={featuredPost.href}
                     className="group relative flex w-full items-center gap-[10px] py-2 text-[24px] font-normal leading-9 -tracking-[1px] text-forest no-underline transition-colors hover:text-forest max-[991px]:text-[18px] max-[991px]:leading-[26px] max-[991px]:-tracking-[0.4px] max-[575px]:text-[16px] max-[575px]:leading-[22px]"
                   >
-                    <span>Read More</span>
+                    <span className="group-hover:underline">Read More</span>
                     <svg
                       width="24"
                       height="24"
@@ -233,11 +232,10 @@ export const BlogPage: React.FC = () => {
                     aria-selected={active}
                     aria-controls="blog-article-grid"
                     onClick={() => setActiveCategory(category)}
-                    className={`cursor-pointer p-[10px] text-[18px] font-light leading-[18px] -tracking-[0.4px] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest max-[575px]:text-[16px] ${
-                      active
-                        ? 'text-[#90a178]'
-                        : 'text-olive hover:text-[#90a178]'
-                    }`}
+                    className={`cursor-pointer p-[10px] text-[18px] font-light leading-[18px] -tracking-[0.4px] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest max-[575px]:text-[16px] ${active
+                      ? 'text-[#90a178]'
+                      : 'text-olive hover:text-[#90a178]'
+                      }`}
                   >
                     {category}
                   </button>

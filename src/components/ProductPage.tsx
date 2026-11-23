@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CharacterReveal } from './CharacterReveal';
-import { SlidingWords } from './SlidingWords';
 
 interface ProductPageProps {
   slug: string;

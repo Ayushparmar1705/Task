@@ -31,7 +31,7 @@ describe('blog article page', () => {
 
     expect(markup).toContain('The Journey of Farm-to-Table Dairy: Freshness to Your Home');
     expect(markup).toContain('Farm Life');
-    expect(markup).toContain('1. Healthy Herds and Pastures Come First');
+    expect(markup).toContain('1. Healthy Soil Is the Start of Everything');
     expect(markup).toContain('blog-img-1-1024x569.webp');
   });
 });

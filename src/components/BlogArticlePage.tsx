@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CalendarDays } from 'lucide-react';
 import { BLOG_POSTS, type BlogPost } from '../data/greensproutData';
 import { CharacterReveal } from './CharacterReveal';
 
@@ -96,53 +95,34 @@ const ARTICLE_CONTENT: Record<string, ArticleContent> = {
       afterSection: 1,
     },
   },
-  'blog-3': {
-    coverAlt: 'Cookies and milk arranged on a table',
-    introduction:
-      'Fresh dairy begins long before it reaches the kitchen. Healthy animals, careful milking, prompt chilling, and thoughtful delivery all help protect quality from the farm to the table.',
-    sections: [
-      {
-        heading: '1. Healthy Herds and Pastures Come First',
-        paragraphs: [
-          'Good dairy starts with daily care. Clean shelter, balanced feed, access to fresh water, and room to move support the wellbeing of the herd and the quality of the milk.',
-          'Well-managed pasture and attentive animal care also help farms build a steady, responsible routine through the seasons.',
-        ],
-      },
-      {
-        heading: '2. Careful Milking Protects Freshness',
-        paragraphs: [
-          'Clean equipment and consistent handling matter at every milking. Farmers check the milk and move it quickly into chilled storage to help maintain its freshness before collection.',
-          'Keeping each step orderly and traceable makes it easier to care for the product from the farm onward.',
-        ],
-      },
-      {
-        heading: '3. A Cool Journey from Farm to Home',
-        paragraphs: [
-          'After collection, dairy products are kept cold during processing, packing, and transport. A reliable cold chain helps preserve their quality while they travel from the farm to local homes and shops.',
-        ],
-      },
-      {
-        heading: '4. Fresh Dairy Is Best Shared Around the Table',
-        paragraphs: [
-          'Milk, butter, and other dairy staples bring the work of the farm into everyday meals. Choosing fresh products and storing them correctly helps families enjoy them at their best and value the care behind every delivery.',
-        ],
-      },
-    ],
-    inlineImage: {
-      src: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-1-1024x569.webp',
-      alt: 'Participants working with plants at an outdoor workshop',
-      afterSection: 1,
-    },
-  },
 };
 
+ARTICLE_CONTENT['blog-3'] = {
+  ...ARTICLE_CONTENT['blog-2'],
+  coverAlt: 'Cookies and milk arranged on a table',
+  inlineImage: {
+    src: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-1-1024x569.webp',
+    alt: 'Participants working with plants at an outdoor workshop',
+    afterSection: 1,
+  },
+};
 ARTICLE_CONTENT['blog-4'] = {
   ...ARTICLE_CONTENT['blog-2'],
   coverAlt: 'A gardener tending to young seedlings in a greenhouse',
+  inlineImage: {
+    src: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-9-1024x684.webp',
+    alt: 'Participants working with crops during an organic gardening workshop',
+    afterSection: 1,
+  },
 };
 ARTICLE_CONTENT['blog-5'] = {
   ...ARTICLE_CONTENT['blog-2'],
   coverAlt: 'Participants working with plants in a greenhouse',
+  inlineImage: {
+    src: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-2-1024x479.webp',
+    alt: 'An organic farming workshop in progress',
+    afterSection: 1,
+  },
 };
 
 interface BlogArticlePageProps {
@@ -195,13 +175,13 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
         </div>
       </section>
 
-      <section className="bg-cream pb-16 pl-6 pr-[39px] pt-[100px] max-[991px]:pl-8 max-[991px]:pr-[47px] max-[991px]:pt-[60px] max-[575px]:pl-4 max-[575px]:pr-[31px]">
+      <section className="bg-cream pb-16 pl-6 pr-[39px] pt-[100px] max-[991px]:pl-8 max-[991px]:pr-8 max-[991px]:pt-[60px] max-[575px]:pl-4 max-[575px]:pr-4">
         <article className="mx-auto w-full max-w-[900px]">
           <header>
             <span className="inline-flex rounded-lg bg-soft-sage px-2 py-2 text-[16px] leading-5 text-olive max-[991px]:text-[14px] max-[991px]:leading-4">
               {post.category}
             </span>
-            <h2 aria-label={post.title} className="mt-4 max-w-[680px] text-[32px] font-medium leading-10 text-forest max-[991px]:max-w-[571px] max-[991px]:text-[28px] max-[991px]:leading-9 max-[575px]:max-w-full max-[575px]:text-[24px] max-[575px]:leading-8">
+            <h2 aria-label={post.title} className="mt-4 max-w-[680px] text-[32px] font-medium leading-10 -tracking-[1px] text-forest max-[991px]:max-w-[571px] max-[991px]:text-[28px] max-[991px]:leading-9 max-[575px]:max-w-full max-[575px]:text-[24px] max-[575px]:leading-8">
               <CharacterReveal
                 text={post.title}
                 granularity={animateTitleByWord ? 'word' : 'character'}
@@ -211,26 +191,35 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
               />
             </h2>
             <div className="mt-4 flex items-center gap-2 text-[18px] leading-[26px] text-olive max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5">
-              <CalendarDays className="h-5 w-5 shrink-0 max-[575px]:h-4 max-[575px]:w-4" aria-hidden="true" />
+              <svg className="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4.25" y="5.75" width="15.5" height="15" rx="3.25" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M8 3.75v4M16 3.75v4M4.5 9.5h15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="8" cy="13" r=".65" fill="currentColor" />
+                <circle cx="12" cy="13" r=".65" fill="currentColor" />
+                <circle cx="16" cy="13" r=".65" fill="currentColor" />
+                <circle cx="8" cy="17" r=".65" fill="currentColor" />
+                <circle cx="12" cy="17" r=".65" fill="currentColor" />
+                <circle cx="16" cy="17" r=".65" fill="currentColor" />
+              </svg>
               <time dateTime={getDateTime(post.date)}>{post.date}</time>
             </div>
           </header>
 
-          <figure className="mt-8 max-h-[500px] w-full overflow-hidden rounded-3xl">
+          <figure className="mt-8 max-h-[500px] w-full overflow-hidden rounded-[24px]">
             <img
               src={post.image}
               alt={content.coverAlt}
-              className="aspect-[3/2] w-full object-cover object-top"
+              className="block aspect-[3/2] h-auto w-full scale-[1.012] object-cover object-center"
             />
           </figure>
 
-          <div className="mt-8 w-full text-[18px] leading-[26px] text-[#5e5e5e] max-[991px]:text-[16px] max-[991px]:leading-6">
+          <div className="mt-8 w-full text-[18px] leading-[26px] -tracking-[0.4px] text-[#4b4e51] max-[991px]:text-[16px] max-[991px]:leading-6">
             <p>{content.introduction}</p>
 
             {content.sections.map((section, index) => (
               <React.Fragment key={section.heading}>
                 <section className="mt-6">
-                  <h3 aria-label={section.heading} className="text-[28px] font-medium leading-10 text-forest max-[991px]:text-[24px] max-[991px]:leading-[31px]">
+                  <h3 aria-label={section.heading} className="text-[28px] font-medium leading-[39px] -tracking-[1px] text-[#1d1f2c] max-[991px]:text-[24px] max-[991px]:leading-[31px]">
                     {post.id === 'blog-1' ? (
                       <CharacterReveal text={section.heading} />
                     ) : (
@@ -245,11 +234,11 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
                 </section>
 
                 {content.inlineImage.afterSection === index && (
-                  <figure className="my-6">
+                  <figure className="mt-6 overflow-hidden rounded-[24px] max-[991px]:rounded-[20px]">
                     <img
                       src={content.inlineImage.src}
                       alt={content.inlineImage.alt}
-                      className="w-full rounded-3xl object-cover"
+                      className="block w-full object-cover"
                       loading="lazy"
                     />
                   </figure>
@@ -260,12 +249,12 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
 
           <section
             aria-labelledby="comment-heading"
-            className="mt-8 w-full border-t border-sage-border pt-4"
+            className="mt-8 w-full border-t border-sage-border pt-6"
           >
-            <h3 id="comment-heading" aria-label="Post a comment" className="text-[18px] font-normal leading-[26px] text-forest">
-              <CharacterReveal text="Post a comment" />
+            <h3 id="comment-heading" aria-label="Post a comment" className="text-[24px] font-normal leading-[30px] -tracking-[.8px] text-[#101010] max-[575px]:text-[20px] max-[575px]:leading-7">
+              Post a comment
             </h3>
-            <form onSubmit={handleCommentSubmit} className="mt-4 flex flex-col items-start gap-3">
+            <form onSubmit={handleCommentSubmit} className="mt-6 flex flex-col items-start">
               <label htmlFor="article-comment" className="sr-only">
                 Comment
               </label>
@@ -273,25 +262,26 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
                 id="article-comment"
                 required
                 rows={3}
-                className="h-[86px] min-h-[86px] w-full resize-y rounded-lg border border-sage-border bg-transparent px-6 py-5 text-[16px] leading-6 text-forest outline-none placeholder:text-olive/70 focus:border-olive"
+                className="h-[86px] min-h-[86px] w-full resize-y rounded-[12px] border border-[#90a178] bg-[#efede7] px-6 py-5 text-[18px] leading-[22px] text-forest outline-none placeholder:text-[#85878c] focus:border-olive max-[575px]:px-4 max-[575px]:text-[16px]"
                 placeholder="Share your thoughts here..."
               />
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 rounded-full bg-bright-yellow py-1 pl-4 pr-1 text-[15px] font-medium text-forest transition-colors hover:bg-yellow"
+                className="group mt-6 inline-flex h-[42px] w-fit items-center gap-0 whitespace-nowrap rounded-full border-0 bg-transparent p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive"
               >
-                Submit comment
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-olive text-white">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M5 12h14m-6-6 6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <span className="inline-flex h-[42px] items-center rounded-full bg-bright-yellow px-4 py-3 text-[18px] font-medium leading-[18px] -tracking-[.3px] text-olive transition-colors duration-300 group-hover:bg-olive group-hover:text-bright-yellow max-[991px]:text-[16px]">
+                  Submit comment
                 </span>
+                <svg className="h-[40px] w-[40px] shrink-0 text-olive transition-transform duration-300 group-hover:-rotate-45" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <path
+                    d="M0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20Z"
+                    fill="#5A6D3F"
+                  />
+                  <path
+                    d="M12.9461 19.4853L25.5707 19.4853L22.9034 17.0156C22.5871 16.7227 22.5871 16.2479 22.9034 15.955C23.2198 15.6621 23.7325 15.6621 24.0488 15.955L28.0988 19.705L28.1542 19.7622C28.4137 20.0567 28.3954 20.491 28.0988 20.7656L24.0488 24.5156C23.7325 24.8085 23.2198 24.8085 22.9034 24.5156C22.5871 24.2227 22.5871 23.7479 22.9034 23.455L25.5707 20.9853L12.9461 20.9853C12.4988 20.9853 12.1361 20.6495 12.1361 20.2353C12.1361 19.8211 12.4988 19.4853 12.9461 19.4853Z"
+                    fill="#FDE251"
+                  />
+                </svg>
               </button>
               {commentMessage && (
                 <p role="status" className="text-[15px] leading-6 text-olive">

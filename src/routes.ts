@@ -1,6 +1,8 @@
+export const HOME_PAGE_PATH = '/';
 export const ABOUT_PAGE_PATH = '/about/';
 export const BLOG_PAGE_PATH = '/blog/';
 export const CONTACT_PAGE_PATH = '/contact/';
+export const TERMS_PAGE_PATH = '/terms-conditions/';
 export const ECO_FRIENDLY_ARTICLE_PATH = '/eco-friendly-habits-small-changes-for-a-greener-life/';
 export const ZERO_WASTE_ARTICLE_PATH = '/greensprouts-guide-to-zerowaste-farming/';
 export const DAIRY_ARTICLE_PATH = '/the-journey-of-farm-to-table-dairy-freshness-to-your-home/';
@@ -25,6 +27,11 @@ export function isBlogPagePath(pathname: string): boolean {
 export function isContactPagePath(pathname: string): boolean {
   const contactPath = CONTACT_PAGE_PATH.replace(/\/+$/, '');
   return pathname.replace(/\/+$/, '') === contactPath;
+}
+
+export function isTermsPagePath(pathname: string): boolean {
+  const termsPath = TERMS_PAGE_PATH.replace(/\/+$/, '');
+  return pathname.replace(/\/+$/, '') === termsPath;
 }
 
 export function isEcoFriendlyArticlePath(pathname: string): boolean {
