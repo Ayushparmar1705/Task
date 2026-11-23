@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { BLOG_PAGE_CATEGORIES, BLOG_PAGE_POSTS, type BlogPagePost } from '../data/greensproutData';
+import { CharacterReveal } from './CharacterReveal';
 
 function getDateLabel(isoDate: string, style: 'long' | 'short'): string {
   const date = new Date(`${isoDate}T00:00:00Z`);
@@ -114,7 +115,12 @@ export const BlogPage: React.FC = () => {
                   aria-label="News & Insight"
                   className="text-center text-[44px] font-normal leading-[56px] -tracking-[2px] text-forest max-[991px]:text-[36px] max-[991px]:leading-[42px] max-[575px]:text-[28px] max-[575px]:leading-[34px] max-[575px]:-tracking-[1.2px]"
                 >
-                  News & Insight
+                  <CharacterReveal
+                    text="News & Insight"
+                    direction="horizontal"
+                    duration={500}
+                    easing="power1.out"
+                  />
                 </h1>
                 <p className="text-center text-[24px] font-normal leading-9 -tracking-[1px] text-olive max-[991px]:text-[18px] max-[991px]:leading-[26px] max-[991px]:-tracking-[0.4px] max-[575px]:text-[16px] max-[575px]:leading-[22px]">
                   Subscribe to learn about new product features, the latest in technology, solutions, and updates.

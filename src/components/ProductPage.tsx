@@ -354,7 +354,12 @@ export const ProductPage: React.FC<ProductPageProps> = ({ slug }) => {
               aria-label="What People Say About Us"
               className="text-[44px] leading-[56px] font-normal -tracking-[2px] text-forest max-[991px]:text-[36px] max-[991px]:leading-[42px] max-[575px]:text-[28px] max-[575px]:leading-[34px]"
             >
-              <SlidingWords text="What People Say About Us" />
+              <CharacterReveal
+                text="What People Say About Us"
+                direction="horizontal"
+                duration={500}
+                easing="power2.inOut"
+              />
             </h2>
           </div>
           <div className="relative h-[835px] max-[991px]:h-[1126px] max-[575px]:h-auto max-[575px]:pb-20">

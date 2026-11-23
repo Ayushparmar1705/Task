@@ -311,7 +311,7 @@ export const AboutPage: React.FC = () => {
               aria-label="Since 2012"
               className="text-left text-[86px] font-medium leading-[1em] -tracking-[4px] text-[#5a6d3f]/20 max-[991px]:text-center max-[991px]:text-[56px] max-[991px]:leading-[60px] max-[991px]:-tracking-[3px] max-[575px]:text-[40px] max-[575px]:leading-[44px] max-[575px]:-tracking-[2px]"
             >
-              <SlidingWords text="Since 2012" animateOnView respectReducedMotion={false} />
+              Since 2012
             </h3>
 
             {/* JOURNEY IMAGE COLLAGE */}

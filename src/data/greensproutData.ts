@@ -1,4 +1,10 @@
-import { DAIRY_ARTICLE_PATH, ECO_FRIENDLY_ARTICLE_PATH, ZERO_WASTE_ARTICLE_PATH } from '../routes';
+import {
+  DAIRY_ARTICLE_PATH,
+  ECO_FRIENDLY_ARTICLE_PATH,
+  FIRST_ORGANIC_GARDEN_ARTICLE_PATH,
+  ORGANIC_FARMING_WORKSHOPS_ARTICLE_PATH,
+  ZERO_WASTE_ARTICLE_PATH,
+} from '../routes';
 
 export interface NavItem {
   label: string;
@@ -217,6 +223,27 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
+export const ADDITIONAL_BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'blog-4',
+    title: 'Starting Your First Organic Garden: A Beginner’s Guide',
+    category: 'Sustainable Living',
+    date: 'November 14, 2025',
+    excerpt: 'Learn practical lessons from GreenSprout workshops, from nurturing healthy soil to growing organic herbs and vegetables in any space.',
+    image: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-3.webp',
+    link: FIRST_ORGANIC_GARDEN_ARTICLE_PATH,
+  },
+  {
+    id: 'blog-5',
+    title: 'Top 5 Lessons Learned from Our Organic Farming Workshops',
+    category: 'Herbal Wellness',
+    date: 'November 13, 2025',
+    excerpt: 'Discover the lessons our workshop participants took home about living soil, crop diversity, natural pest control, and accessible organic growing.',
+    image: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-1.webp',
+    link: ORGANIC_FARMING_WORKSHOPS_ARTICLE_PATH,
+  },
+];
+
 export const BLOG_PAGE_CATEGORIES = [
   'All',
   'Organic Farming',
@@ -261,7 +288,7 @@ export const BLOG_PAGE_POSTS: BlogPagePost[] = [
     date: '2025-11-14',
     image: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-3.webp',
     imageAlt: 'A gardener tending to young seedlings',
-    href: 'https://greensprout.kirki.io/starting-your-first-organic-garden-a-beginners-guide/',
+    href: FIRST_ORGANIC_GARDEN_ARTICLE_PATH,
   },
   {
     id: 'organic-farming-workshops',
@@ -270,7 +297,7 @@ export const BLOG_PAGE_POSTS: BlogPagePost[] = [
     date: '2025-11-13',
     image: 'https://greensprout.kirki.io/wp-content/uploads/2025/11/blog-img-1.webp',
     imageAlt: 'Participants working with plants at an outdoor workshop',
-    href: 'https://greensprout.kirki.io/top-5-lessons-learned-from-our-organic-farming-workshops/',
+    href: ORGANIC_FARMING_WORKSHOPS_ARTICLE_PATH,
   },
 ];
 

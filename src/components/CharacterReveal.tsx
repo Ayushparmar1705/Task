@@ -7,6 +7,7 @@ export interface CharacterRevealProps {
   easing?: string;
   className?: string;
   direction?: 'vertical' | 'horizontal';
+  granularity?: 'character' | 'word';
 }
 
 export const CharacterReveal: React.FC<CharacterRevealProps> = ({
@@ -15,6 +16,7 @@ export const CharacterReveal: React.FC<CharacterRevealProps> = ({
   easing = 'power2.out',
   className = '',
   direction = 'vertical',
+  granularity = 'character',
 }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
 
@@ -78,7 +80,7 @@ export const CharacterReveal: React.FC<CharacterRevealProps> = ({
       observer?.disconnect();
       gsap.killTweensOf(characters);
     };
-  }, [direction, duration, easing, text]);
+  }, [direction, duration, easing, granularity, text]);
 
   const words = text.split(/\s+/);
   let characterIndex = 0;
@@ -88,27 +90,36 @@ export const CharacterReveal: React.FC<CharacterRevealProps> = ({
       {words.map((word, wordIndex) => (
         <React.Fragment key={`${word}-${wordIndex}`}>
           <span className="inline-block whitespace-nowrap align-bottom">
-            {Array.from(word).map((character) => {
-              const index = characterIndex;
-              characterIndex += 1;
+            {granularity === 'word' ? (
+              <span
+                data-character=""
+                className="inline-block will-change-[transform,opacity]"
+              >
+                {word}
+              </span>
+            ) : (
+              Array.from(word).map((character) => {
+                const index = characterIndex;
+                characterIndex += 1;
 
-              const characterSpan = (
-                <span
-                  data-character=""
-                  className="inline-block will-change-[transform,opacity]"
-                >
-                  {character}
-                </span>
-              );
+                const characterSpan = (
+                  <span
+                    data-character=""
+                    className="inline-block will-change-[transform,opacity]"
+                  >
+                    {character}
+                  </span>
+                );
 
-              return direction === 'horizontal' ? (
-                <React.Fragment key={`${index}-${character}`}>{characterSpan}</React.Fragment>
-              ) : (
-                <span key={`${index}-${character}`} className="inline-block overflow-hidden align-bottom">
-                  {characterSpan}
-                </span>
-              );
-            })}
+                return direction === 'horizontal' ? (
+                  <React.Fragment key={`${index}-${character}`}>{characterSpan}</React.Fragment>
+                ) : (
+                  <span key={`${index}-${character}`} className="inline-block overflow-hidden align-bottom">
+                    {characterSpan}
+                  </span>
+                );
+              })
+            )}
           </span>
           {wordIndex < words.length - 1 ? ' ' : ''}
         </React.Fragment>

@@ -62,31 +62,31 @@ const ARTICLE_CONTENT: Record<string, ArticleContent> = {
   'blog-2': {
     coverAlt: 'Hands working compost into a garden bed',
     introduction:
-      'Zero-waste farming keeps resources moving through the growing cycle. Crop residues can become compost, captured water can support new growth, and useful materials can be returned to the soil instead of discarded. These connected practices reduce waste while building healthier, more resilient farms.',
+      'Organic farming isn’t just a way to grow food—it’s a way to reconnect with the earth, ourselves, and each other. At GreenSprout, our workshops are designed to inspire, educate, and empower everyone, from complete beginners to budding green thumbs. Here are the top five lessons our participants have taken home from their time on the farm:',
     sections: [
       {
         heading: '1. Healthy Soil Is the Start of Everything',
         paragraphs: [
-          'Healthy soil is the foundation of a closed-loop farm. Composting crop residues and food scraps returns nutrients to the land, improves soil structure, and helps retain moisture through changing weather.',
-          'Turning organic leftovers into a growing resource reduces waste and supports the soil life that helps crops thrive.',
+          'The foundation of organic farming is living, nutrient-rich soil. Throughout our workshops, participants learn how composting, mulching, and using natural fertilizers promote healthy soil life. We explore how earthworms, beneficial microbes, and organic matter transform “dirt” into a thriving ecosystem that feeds crops—and ultimately, us.',
+          'By adopting sober binges, individuals can rediscover their sense of self and their environment, nurturing a feeling of presence and purpose. It’s about selecting experiences that enrich the mind and spirit, rather than dulling them.',
         ],
       },
       {
         heading: '2. Diversity Matters—In Crops and Techniques',
         paragraphs: [
-          'Growing a wider mix of crops supports biodiversity and makes the farm ecosystem more resilient. Crop rotation, companion planting, and native flowering plants can improve soil health, attract pollinators, and help interrupt pest cycles.',
+          'Monoculture is out; diversity is in. Our attendees discover the value of planting a variety of crops together, which helps prevent pests, strengthens plant health, and encourages a balanced environment. Intercropping, crop rotation, and companion planting are just a few of the techniques we practice together.',
         ],
       },
       {
         heading: '3. Natural Pest Control Is Possible—and Powerful',
         paragraphs: [
-          'Preventive, nature-friendly practices reduce the need for synthetic pesticides. Healthy soil, regular plant checks, habitat for beneficial insects, and physical barriers can help manage pests while protecting pollinators.',
+          'Who needs chemicals when nature provides solutions? We demonstrate ways to manage pests without synthetic pesticides—using beneficial insects, homemade sprays, and physical barriers like nets and mulches. Participants leave amazed at how simple changes can protect plants while nurturing pollinators and helpful wildlife.',
         ],
       },
       {
         heading: '4. Organic Farming Is for Everyone',
         paragraphs: [
-          'Zero-waste habits can scale to every growing space. Composting, careful water use, and thoughtful reuse of materials are practical ways to close the loop at home, in a community garden, or on a working farm.',
+          'One key takeaway: you don’t need acres of land to get started. Our workshops show participants how to use home gardens, balconies, or even windowsills to grow organic herbs and vegetables. Practical demonstrations and our gardening kits empower everyone to begin their organic journey, no matter their space or experience level.',
         ],
       },
     ],
@@ -136,13 +136,31 @@ const ARTICLE_CONTENT: Record<string, ArticleContent> = {
   },
 };
 
+ARTICLE_CONTENT['blog-4'] = {
+  ...ARTICLE_CONTENT['blog-2'],
+  coverAlt: 'A gardener tending to young seedlings in a greenhouse',
+};
+ARTICLE_CONTENT['blog-5'] = {
+  ...ARTICLE_CONTENT['blog-2'],
+  coverAlt: 'Participants working with plants in a greenhouse',
+};
+
 interface BlogArticlePageProps {
   post?: BlogPost;
+}
+
+function getDateTime(dateLabel: string): string {
+  const date = new Date(dateLabel);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_POSTS[0] }) => {
   const [commentMessage, setCommentMessage] = useState('');
   const content = ARTICLE_CONTENT[post.id];
+  const animateTitleByWord = ['blog-2', 'blog-3', 'blog-4', 'blog-5'].includes(post.id);
 
   if (!content) {
     throw new Error(`Missing article content for "${post.id}".`);
@@ -171,7 +189,7 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
               aria-label="News & Insight"
               className="text-[56px] font-light leading-[64px] -tracking-[3px] text-white max-[991px]:text-[44px] max-[991px]:leading-[52px] max-[991px]:-tracking-[2px] max-[575px]:text-[34px] max-[575px]:leading-10"
             >
-              <CharacterReveal text="News & Insight" />
+              News &amp; Insight
             </h1>
           </div>
         </div>
@@ -184,11 +202,17 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
               {post.category}
             </span>
             <h2 aria-label={post.title} className="mt-4 max-w-[680px] text-[32px] font-medium leading-10 text-forest max-[991px]:max-w-[571px] max-[991px]:text-[28px] max-[991px]:leading-9 max-[575px]:max-w-full max-[575px]:text-[24px] max-[575px]:leading-8">
-              <CharacterReveal text={post.title} />
+              <CharacterReveal
+                text={post.title}
+                granularity={animateTitleByWord ? 'word' : 'character'}
+                direction={animateTitleByWord ? 'horizontal' : 'vertical'}
+                duration={animateTitleByWord ? 500 : 400}
+                easing={animateTitleByWord ? 'power1.out' : 'power2.out'}
+              />
             </h2>
             <div className="mt-4 flex items-center gap-2 text-[18px] leading-[26px] text-olive max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5">
               <CalendarDays className="h-5 w-5 shrink-0 max-[575px]:h-4 max-[575px]:w-4" aria-hidden="true" />
-              <time dateTime="2025-11-14">{post.date}</time>
+              <time dateTime={getDateTime(post.date)}>{post.date}</time>
             </div>
           </header>
 
@@ -207,7 +231,11 @@ export const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ post = BLOG_PO
               <React.Fragment key={section.heading}>
                 <section className="mt-6">
                   <h3 aria-label={section.heading} className="text-[28px] font-medium leading-10 text-forest max-[991px]:text-[24px] max-[991px]:leading-[31px]">
-                    <CharacterReveal text={section.heading} />
+                    {post.id === 'blog-1' ? (
+                      <CharacterReveal text={section.heading} />
+                    ) : (
+                      section.heading
+                    )}
                   </h3>
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph} className="mt-4">

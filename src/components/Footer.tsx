@@ -18,16 +18,15 @@ export const Footer: React.FC<FooterProps> = ({ homePage = true }) => {
   return (
     <footer
       id="footer"
-      className="relative isolate overflow-hidden bg-forest bg-[url('https://greensprout.kirki.io/wp-content/uploads/2025/11/footer-img.webp')] bg-cover bg-center font-sans text-white"
+      className="relative isolate overflow-hidden bg-[url('https://greensprout.kirki.io/wp-content/uploads/2025/11/footer-img.webp')] bg-cover bg-center font-sans text-white"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/90 via-forest/30 to-forest/90" />
-      <div className="relative z-10 mx-auto w-full max-w-[1570px] border-x border-white/20">
-        <div className="flex flex-col items-center gap-8 border-b border-white/20 px-6 py-[246px] text-center max-[991px]:px-8 max-[991px]:py-[150px] max-[575px]:px-4 max-[575px]:pt-[86px] max-[575px]:pb-[100px]">
-          <div className="flex max-w-[983px] flex-col items-center gap-8 max-[991px]:max-w-[414px] max-[575px]:max-w-[300px]">
-            <h2 aria-label="Let’s grow healthier together" className="text-[86px] font-medium leading-[86px] -tracking-[4px] text-forest max-[991px]:text-[56px] max-[991px]:leading-[60px] max-[575px]:text-[36px] max-[575px]:leading-10">
+      <div className="relative z-10 mx-auto w-[calc(100%-48px)] max-w-[1552px] border-x border-white/20 max-[1199px]:w-[calc(100%-64px)] max-[575px]:w-[calc(100%-32px)]">
+        <div className="flex flex-col items-center gap-8 border-b border-white/20 px-6 py-[240px] text-center max-[991px]:px-8 max-[991px]:py-[150px] max-[575px]:px-4 max-[575px]:pt-[86px] max-[575px]:pb-[100px]">
+          <div className="flex max-w-[983px] flex-col items-center gap-8 max-[991px]:max-w-[414px] max-[991px]:gap-4 max-[575px]:max-w-[300px]">
+            <h2 aria-label="Let’s grow healthier together" className="text-[86px] font-medium leading-[86px] -tracking-[4px] text-forest max-[991px]:text-[56px] max-[991px]:leading-[60px] max-[575px]:text-[40px] max-[575px]:leading-[44px]">
               Let’s grow healthier together
             </h2>
-            <p className="max-w-[500px] text-[20px] font-normal leading-7 -tracking-[.4px] text-forest max-[991px]:text-[16px] max-[991px]:leading-6">
+            <p className="max-w-[500px] text-[20px] font-normal leading-7 text-forest max-[991px]:text-[16px] max-[991px]:leading-6 max-[575px]:text-[14px] max-[575px]:leading-5">
               We envision a future where innovation nourishes the earth and enhances sustainable agriculture.
             </p>
           </div>
@@ -38,10 +37,10 @@ export const Footer: React.FC<FooterProps> = ({ homePage = true }) => {
           />
         </div>
 
-        <div className="grid grid-cols-[200px_214px_minmax(0,1fr)_492px] gap-12 border-b border-white/20 px-6 py-16 max-[1199px]:grid-cols-2 max-[1199px]:gap-8 max-[1199px]:px-8 max-[575px]:grid-cols-1 max-[575px]:px-4">
-          <div className="flex flex-col gap-4">
-            <h3 aria-label="Quick Links" className="text-[18px] font-medium leading-[18px] -tracking-[.3px] text-bright-yellow">Quick Links</h3>
-            <nav className="flex flex-col gap-3">
+        <div className="mb-[140px] grid grid-cols-[184px_197px_minmax(0,1fr)_462px] gap-12 px-[29px] pt-16 max-[1199px]:mb-[155px] max-[1199px]:grid-cols-3 max-[1199px]:gap-x-6 max-[1199px]:gap-y-12 max-[1199px]:px-8 max-[767px]:grid-cols-2 max-[767px]:gap-x-6 max-[575px]:mb-[86px] max-[575px]:grid-cols-2 max-[575px]:gap-x-0 max-[575px]:gap-y-12 max-[575px]:px-4 max-[575px]:pt-12">
+          <div className="flex flex-col gap-6">
+            <h3 aria-label="Quick Links" className="text-[16px] font-medium leading-[18px] -tracking-[.3px] text-bright-yellow">Quick Links</h3>
+            <nav className="flex flex-col gap-5">
               <a className="text-white/85 transition-colors hover:text-bright-yellow" href={routeHref('#hero')}>Home</a>
               <a className="text-white/85 transition-colors hover:text-bright-yellow" href={routeHref('#about-us')}>About</a>
               <a className="text-white/85 transition-colors hover:text-bright-yellow" href={routeHref('#blogs')}>Blog</a>
@@ -54,9 +53,9 @@ export const Footer: React.FC<FooterProps> = ({ homePage = true }) => {
             </nav>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <h3 aria-label="Products" className="text-[18px] font-medium leading-[18px] -tracking-[.3px] text-bright-yellow">Products</h3>
-            <nav className="flex flex-col gap-3">
+          <div className="flex flex-col gap-6 max-[575px]:col-span-2 max-[575px]:row-start-2">
+            <h3 aria-label="Products" className="text-[16px] font-medium leading-[18px] -tracking-[.3px] text-bright-yellow">Products</h3>
+            <nav className="flex flex-col gap-5">
               {PRODUCT_DROPDOWN.map((product) => (
                 <a
                   key={product.title}
@@ -69,25 +68,27 @@ export const Footer: React.FC<FooterProps> = ({ homePage = true }) => {
             </nav>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <h3 aria-label="Others" className="text-[18px] font-medium leading-[18px] -tracking-[.3px] text-bright-yellow">Others</h3>
-            <a className="text-soft-sage transition-colors hover:text-bright-yellow" href={routeHref('#about-us')}>
+          <div className="flex flex-col gap-6 max-[575px]:col-start-2 max-[575px]:row-start-1">
+            <h3 aria-label="Others" className="text-[16px] font-medium leading-[18px] -tracking-[.3px] text-bright-yellow">Others</h3>
+            <a className="text-[14px] leading-4 text-white/85 transition-colors hover:text-bright-yellow max-[575px]:text-base max-[575px]:leading-6" href="/terms-conditions/">
               Terms of Service
             </a>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 max-[1199px]:col-span-3 max-[1199px]:ml-auto max-[1199px]:w-full max-[1199px]:max-w-[462px] max-[767px]:col-span-2 max-[575px]:col-span-2">
             <h3 className="sr-only">Stay in touch</h3>
-            <form className="flex w-[492px] max-w-full gap-1" onSubmit={(event) => event.preventDefault()}>
-              <input
-                type="email"
-                aria-label="Email address"
-                placeholder="Enter your email address"
-                className="min-w-0 flex-1 rounded-full border border-bright-yellow/80 bg-transparent px-4 py-3 text-white outline-none placeholder:text-white/70 focus:border-bright-yellow"
-              />
+            <form className="flex w-full items-center max-[575px]:flex-col max-[575px]:items-stretch max-[575px]:gap-1.5" onSubmit={(event) => event.preventDefault()}>
+              <div className="flex h-[46px] min-w-0 flex-1 items-center rounded-full border border-yellow/80 bg-transparent focus-within:border-yellow max-[575px]:h-[42px]">
+                <input
+                  type="email"
+                  aria-label="Email address"
+                  placeholder="Enter your email address"
+                  className="h-[44px] min-w-0 w-full flex-1 bg-transparent px-4 py-[11px] text-[16px] leading-5 text-white outline-none placeholder:text-white/80 max-[575px]:h-10"
+                />
+              </div>
               <button
                 type="submit"
-                className="inline-flex min-w-[150px] items-center justify-between gap-2 rounded-full bg-bright-yellow px-5 py-3 font-medium text-forest transition-colors hover:bg-yellow"
+                className="inline-flex h-[46px] min-w-[145px] items-center justify-between gap-2 rounded-full bg-yellow px-5 py-0 text-[14px] font-medium leading-6 tracking-[-.28px] text-forest transition-colors hover:bg-bright-yellow max-[575px]:h-[42px] max-[575px]:w-full"
               >
                 Subscribe
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -104,11 +105,11 @@ export const Footer: React.FC<FooterProps> = ({ homePage = true }) => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-8 px-6 py-10 text-center max-[991px]:px-8 max-[575px]:px-4">
-          <div className="flex h-[170px] items-center justify-center max-[1199px]:h-[130px]">
-            <Logo light className="origin-center scale-[5.1] max-[1199px]:scale-[2.1] max-[575px]:scale-[1.8]" />
+        <div className="flex flex-col items-center gap-6 px-6 pb-6 text-center max-[1199px]:gap-4 max-[1199px]:pb-6 max-[575px]:gap-2 max-[575px]:px-4 max-[575px]:pb-4">
+          <div className="flex h-[191px] items-center justify-center max-[1199px]:h-[58px] max-[575px]:h-[48px]">
+            <Logo light className="-translate-y-[2px] origin-center scale-[5.8] max-[1199px]:scale-[1.66] max-[575px]:-translate-y-[3px] max-[575px]:scale-[1.33]" />
           </div>
-          <p className="text-[16px] text-white/75">©GreenSprout 2026. All rights reserved.</p>
+          <p className="text-[16px] leading-5 text-white/75 max-[1199px]:text-[14px] max-[1199px]:leading-4">©GreenSprout 2026. All rights reserved.</p>
         </div>
       </div>
     </footer>

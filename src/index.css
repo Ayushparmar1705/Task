@@ -163,7 +163,7 @@ body {
   will-change: auto;
 }
 
-/* Preserve the About journey's muted "Since 2012" text color during its reveal. */
+/* Keep authored colors on text that still reveals within the About journey. */
 #about-journey .revealed-word {
   color: inherit;
 }

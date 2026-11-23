@@ -15,13 +15,15 @@ import { Footer } from './components/Footer';
 import { BlogArticlePage } from './components/BlogArticlePage';
 import { ProductPage } from './components/ProductPage';
 
-import { BLOG_POSTS } from './data/greensproutData';
+import { ADDITIONAL_BLOG_POSTS, BLOG_POSTS } from './data/greensproutData';
 import {
   isAboutPagePath,
   isBlogPagePath,
   isContactPagePath,
   isDairyArticlePath,
   isEcoFriendlyArticlePath,
+  isFirstOrganicGardenArticlePath,
+  isOrganicFarmingWorkshopsArticlePath,
   isZeroWasteArticlePath,
   isProductPagePath,
 } from './routes';
@@ -42,8 +44,14 @@ function App() {
 
   const isZeroWasteArticle = isZeroWasteArticlePath(currentPath);
   const isDairyArticle = isDairyArticlePath(currentPath);
+  const isFirstOrganicGardenArticle = isFirstOrganicGardenArticlePath(currentPath);
+  const isOrganicFarmingWorkshopsArticle = isOrganicFarmingWorkshopsArticlePath(currentPath);
   const isArticlePage =
-    isEcoFriendlyArticlePath(currentPath) || isZeroWasteArticle || isDairyArticle;
+    isEcoFriendlyArticlePath(currentPath) ||
+    isZeroWasteArticle ||
+    isDairyArticle ||
+    isFirstOrganicGardenArticle ||
+    isOrganicFarmingWorkshopsArticle;
   const isAboutPage = isAboutPagePath(currentPath);
   const isBlogPage = isBlogPagePath(currentPath);
   const isContactPage = isContactPagePath(currentPath);
@@ -95,7 +103,17 @@ function App() {
       <main className="flex-1">
         {isArticlePage ? (
           <BlogArticlePage
-            post={isDairyArticle ? BLOG_POSTS[2] : isZeroWasteArticle ? BLOG_POSTS[1] : BLOG_POSTS[0]}
+            post={
+              isOrganicFarmingWorkshopsArticle
+                ? ADDITIONAL_BLOG_POSTS[1]
+                : isFirstOrganicGardenArticle
+                  ? ADDITIONAL_BLOG_POSTS[0]
+                  : isDairyArticle
+                    ? BLOG_POSTS[2]
+                    : isZeroWasteArticle
+                      ? BLOG_POSTS[1]
+                      : BLOG_POSTS[0]
+            }
           />
         ) : isProductPage ? (
           <ProductPage slug={currentPath.replace(/^\/product\/|\/+$/g, '')} />

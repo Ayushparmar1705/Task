@@ -4,6 +4,8 @@ export const CONTACT_PAGE_PATH = '/contact/';
 export const ECO_FRIENDLY_ARTICLE_PATH = '/eco-friendly-habits-small-changes-for-a-greener-life/';
 export const ZERO_WASTE_ARTICLE_PATH = '/greensprouts-guide-to-zerowaste-farming/';
 export const DAIRY_ARTICLE_PATH = '/the-journey-of-farm-to-table-dairy-freshness-to-your-home/';
+export const FIRST_ORGANIC_GARDEN_ARTICLE_PATH = '/starting-your-first-organic-garden-a-beginners-guide/';
+export const ORGANIC_FARMING_WORKSHOPS_ARTICLE_PATH = '/top-5-lessons-learned-from-our-organic-farming-workshops/';
 export const NATURAL_PANTRY_PRODUCT_PATH = '/product/natural-pantry-items/';
 export const DAIRY_PRODUCT_PATH = '/product/dairy-animal-products/';
 export const HERBAL_PRODUCT_PATH = '/product/herbal-wellness-products/';
@@ -37,6 +39,16 @@ export function isZeroWasteArticlePath(pathname: string): boolean {
 
 export function isDairyArticlePath(pathname: string): boolean {
   const articlePath = DAIRY_ARTICLE_PATH.replace(/\/+$/, '');
+  return pathname.replace(/\/+$/, '') === articlePath;
+}
+
+export function isFirstOrganicGardenArticlePath(pathname: string): boolean {
+  const articlePath = FIRST_ORGANIC_GARDEN_ARTICLE_PATH.replace(/\/+$/, '');
+  return pathname.replace(/\/+$/, '') === articlePath;
+}
+
+export function isOrganicFarmingWorkshopsArticlePath(pathname: string): boolean {
+  const articlePath = ORGANIC_FARMING_WORKSHOPS_ARTICLE_PATH.replace(/\/+$/, '');
   return pathname.replace(/\/+$/, '') === articlePath;
 }
 
